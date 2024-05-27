@@ -1,0 +1,274 @@
+*,
+* ::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Merriweather Sans", "Sans Serif";
+}
+
+:root {
+	--colorDark1: #112d4e;
+	--colorDark2: #3f72af;
+	--colorLight1: #dbe2ef;
+	--colorLight2: #f9f7f7;
+}
+
+.currentTab {
+	background-color: rgba(219, 226, 239, 0.5);
+	border-radius: 4px;
+}
+
+.active {
+	scale: 1;
+}
+
+.wrapper {
+	width: 100vw;
+	height: 100vh;
+	color: var(--colorLight2);
+	background: linear-gradient(
+		160deg,
+		var(--colorDark1) 0%,
+		var(--colorDark2) 100%
+	);
+
+	overflow-x: hidden;
+}
+
+/* Heading */
+h1 {
+	text-align: center;
+	padding-top: 20px;
+}
+
+/* Tabs */
+
+.tabConatiner {
+	display: flex;
+	justify-content: space-between;
+	width: 90%;
+	max-width: 550px;
+	margin: 0 auto;
+	margin-top: 4rem;
+}
+
+.tab {
+	cursor: pointer;
+	font-size: 0.875rem;
+	letter-spacing: 1.75px;
+	padding: 5px 8px;
+}
+
+/* Overall container after tabs */
+.weatherContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-block: 4rem; /* top bottom ka margin , inline -> left right ka margin */
+}
+
+/* Grant Access Page */
+.grantLocation {
+	display: none;
+	flex-direction: column;
+	align-items: center;
+}
+
+.grantLocation.active {
+	display: flex;
+}
+
+.grantLocation img {
+	margin-bottom: 2rem;
+}
+
+.grantLocation p:first-of-type {
+	font-size: 1.75rem;
+	text-align: center;
+	font-weight: 600;
+}
+
+.grantLocation p:last-of-type {
+	font-size: 0.85rem;
+	margin-top: 0.75rem;
+	margin-bottom: 1.75rem;
+	letter-spacing: 0.75px;
+	font-weight: 500;
+}
+
+.grantAccessButton {
+	all: unset;
+	background-color: var(--colorDark2);
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 0.85rem;
+	text-transform: uppercase;
+	padding: 10px 30px;
+	margin-bottom: 10px;
+}
+
+/* Loading Screen */
+
+.loadingContainer {
+	display: none;
+	flex-direction: column;
+	align-items: center;
+}
+
+.loadingContainer.active {
+	display: flex;
+}
+
+.loadingContainer p {
+	text-transform: uppercase;
+}
+
+/* Weather Information */
+
+.weatherInformation {
+	display: none;
+	flex-direction: column;
+	align-items: center;
+}
+
+.weatherInformation.active {
+	display: flex;
+}
+
+.locationInfo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0 0.5rem;
+	margin-bottom: 1rem;
+}
+
+[locationName] {
+	font-size: 2rem;
+}
+
+[locationFlag] {
+	height: 30px;
+	width: 30px;
+	object-fit: contain;
+}
+
+[weatherDesc] {
+	text-transform: capitalize;
+	font-size: 1.5rem;
+	font-weight: 200;
+}
+
+[weatherImage] {
+	width: 90px;
+	height: 90px;
+}
+
+[temperatureValue] {
+	font-size: 2.75rem;
+	font-weight: 700;
+}
+
+.weatherParameter {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	gap: 10px 20px;
+	margin-top: 2rem;
+}
+
+.parameter {
+	width: 30%;
+	max-width: 200px;
+	background-color: rgba(219, 226, 239, 0.5);
+	border-radius: 5px;
+	padding: 1rem;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 5px 0;
+}
+
+.parameter img {
+	width: 50px;
+	height: 50px;
+}
+
+.parameter p:first-of-type {
+	font-size: 1.15rem;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+
+.parameter p:last-of-type {
+	font-size: 1rem;
+	font-weight: 200;
+}
+
+/* Search form */
+
+.searchForm {
+	width: 90%;
+	max-width: 550px;
+	margin: 0 auto;
+
+	display: none;
+	justify-content: center;
+	align-items: center;
+
+	gap: 0 10px;
+	margin-bottom: 3rem;
+}
+
+.searchForm.active {
+	display: flex;
+}
+
+.searchForm input {
+	all: unset;
+	width: calc(100% - 80px);
+	height: 40px;
+	padding: 0 20px;
+	border-radius: 10px;
+	background-color: rgba(219, 226, 239, 0.5);
+}
+
+.searchForm input::placeholder {
+	color: rgba(255, 255, 255, 0.7);
+}
+
+.searchForm input:focus {
+	outline: 3px solid rgba(255, 255, 255, 0.7);
+}
+
+.searchButton{
+	all: unset;
+	border-radius: 0%;
+	background-color: var(--colorDark2);
+
+	height: 40px;
+	width: 40px;
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
+
+
+.errorScreen
+{
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-transform: uppercase;
+}
+
+.errorScreen.active
+{
+	display: flex;
+}
