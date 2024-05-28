@@ -31,7 +31,7 @@ const errorMessage = document.querySelector("[errorMessage]");
 // Intial Conditions
 let currentTab = userTab;
 currentTab.classList.add("currentTab");
-const API_key = secret.ACCESS_TOEKN;
+const API_key = "f5e9c06ecf7a3653a32e73bbca9daf54";
 
 // Check if coordinates already present in session at the very beginning
 getFromSessionStorage();
