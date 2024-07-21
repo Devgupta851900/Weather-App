@@ -153,7 +153,7 @@ grantAccessButton.addEventListener("click", () => {
 				fetchUserWeatherInfo(userCoordinates);
 			},
 			(err) => {
-				console.log(error);
+				console.log(err);
 			},
 			{
 				enableHighAccuracy: true,
