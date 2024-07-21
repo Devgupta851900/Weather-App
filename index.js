@@ -74,7 +74,7 @@ function switchTab(clickedTab) {
 
 			// Here, user current location weather information will be displayed
 			// it'll deplayed only if coordinates are present so we'll check for it in local storage.
- 
+
 			getFromSessionStorage();
 		}
 	}
@@ -140,19 +140,22 @@ function getFromSessionStorage() {
 
 grantAccessButton.addEventListener("click", () => {
 	if (navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition((position) => {
-			const userCoordinates = {
-				lat: position.coords.latitude,
-				log: position.coords.longitude,
-			};
-			sessionStorage.setItem(
-				"userCoordinates",
-				JSON.stringify(userCoordinates)
-			);
-			fetchUserWeatherInfo(userCoordinates);
-		},{
-			enableHighAccuracy: true,
-		});
+		navigator.geolocation.getCurrentPosition(
+			(position) => {
+				const userCoordinates = {
+					lat: position.coords.latitude,
+					log: position.coords.longitude,
+				};
+				sessionStorage.setItem(
+					"userCoordinates",
+					JSON.stringify(userCoordinates)
+				);
+				fetchUserWeatherInfo(userCoordinates);
+			},
+			{
+				enableHighAccuracy: true,
+			}
+		);
 	} else {
 		errorScreen.classList.add("active");
 		errorMessage.innerText = "Unable to get User Current Location";
@@ -288,6 +291,7 @@ async function fetchSearchWeatherInfo(city) {
 		const data = await result.json();
 		loadingScreen.classList.remove("active");
 		weatherInformation.classList.add("active");
+		errorScreen.classList.remove("active");
 
 		renderWeatherInformation(data);
 	} catch (e) {
