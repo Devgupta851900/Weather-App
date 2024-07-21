@@ -152,6 +152,9 @@ grantAccessButton.addEventListener("click", () => {
 				);
 				fetchUserWeatherInfo(userCoordinates);
 			},
+			(err) => {
+				console.log(error);
+			},
 			{
 				enableHighAccuracy: true,
 			}
