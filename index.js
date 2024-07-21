@@ -156,7 +156,9 @@ grantAccessButton.addEventListener("click", () => {
 				console.warn(`ERROR(${err.code}): ${err.message}`);
 			},
 			{
-				enableHighAccuracy: true,
+				 enableHighAccuracy: true,
+ 				 timeout: 5000,
+  			         maximumAge: 0,
 			}
 		);
 	} else {
