@@ -74,7 +74,7 @@ function switchTab(clickedTab) {
 
 			// Here, user current location weather information will be displayed
 			// it'll deplayed only if coordinates are present so we'll check for it in local storage.
-
+ 
 			getFromSessionStorage();
 		}
 	}
@@ -150,6 +150,8 @@ grantAccessButton.addEventListener("click", () => {
 				JSON.stringify(userCoordinates)
 			);
 			fetchUserWeatherInfo(userCoordinates);
+		},{
+			enableHighAccuracy: true,
 		});
 	} else {
 		errorScreen.classList.add("active");
