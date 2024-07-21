@@ -154,7 +154,6 @@ grantAccessButton.addEventListener("click", () => {
 			},
 			(err) => {
 				console.log(error);
-				console.warn(`ERROR(${err.code}): ${err.message}`);
 			},
 			{
 				enableHighAccuracy: true,
