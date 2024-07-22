@@ -156,17 +156,28 @@ grantAccessButton.addEventListener("click", () => {
 				fetchUserWeatherInfo(userCoordinates);
 			},
 			(err) => {
-				console.log(err);
+				console.error("Error getting location:", err);
+				// Handle specific errors
+				if (err.code === 1) {
+					// Permission denied
+					console.log("Permission denied by user.");
+				} else if (err.code === 2) {
+					// Position unavailable
+					console.log("Position unavailable.");
+				} else if (err.code === 3) {
+					// Timeout
+					console.log("Timeout exceeded.");
+				}
 			},
 			{
 				enableHighAccuracy: true,
-				timeout: 5000,
+				timeout: 10000, // Increase timeout if needed
 				maximumAge: 0,
 			}
 		);
 	} else {
-		errorScreen.classList.add("active");
-		errorMessage.innerText = "Unable to get User Current Location";
+		console.log("Geolocation is not supported by this browser.");
+		// Handle case where geolocation is not supported
 	}
 });
 
