@@ -61,6 +61,8 @@ function switchTab(clickedTab) {
 		currentTab.classList.remove("currentTab");
 		currentTab = clickedTab;
 		currentTab.classList.add("currentTab");
+		loadingScreen.classList.remove("active");
+		errorScreen.classList.remove("active");
 
 		// Since we want to change between tabs we made visible one disappear and made invisible one appear
 		if (!searchForm.classList.contains("active")) {
@@ -70,6 +72,7 @@ function switchTab(clickedTab) {
 		} else {
 			searchForm.classList.remove("active");
 			weatherInformation.classList.remove("active");
+
 			searchBar.value = "";
 
 			// Here, user current location weather information will be displayed
@@ -279,6 +282,7 @@ searchForm.addEventListener("submit", (e) => {
 });
 
 async function fetchSearchWeatherInfo(city) {
+	errorScreen.classList.remove("active");
 	loadingScreen.classList.add("active");
 	weatherInformation.classList.remove("active");
 	grantAccessContainer.classList.remove("active");
@@ -294,10 +298,9 @@ async function fetchSearchWeatherInfo(city) {
 		}
 
 		const data = await result.json();
+		errorScreen.classList.remove("active");
 		loadingScreen.classList.remove("active");
 		weatherInformation.classList.add("active");
-		errorScreen.classList.remove("active");
-
 		renderWeatherInformation(data);
 	} catch (e) {
 		loadingScreen.classList.remove("active");

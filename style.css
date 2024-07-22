@@ -244,23 +244,20 @@ h1 {
 	outline: 3px solid rgba(255, 255, 255, 0.7);
 }
 
-.searchButton{
+.searchButton {
 	all: unset;
 	border-radius: 0%;
 	background-color: var(--colorDark2);
 
 	height: 40px;
 	width: 40px;
-	
+
 	display: flex;
 	justify-content: center;
 	align-items: center;
-
 }
 
-
-.errorScreen
-{
+.errorScreen {
 	display: none;
 	flex-direction: column;
 	justify-content: center;
@@ -268,7 +265,15 @@ h1 {
 	text-transform: uppercase;
 }
 
-.errorScreen.active
-{
+.errorScreen.active {
 	display: flex;
+}
+
+@media (max-width: 768px) {
+	.weatherParameter {
+		flex-direction: column;
+	}
+	.parameter{
+		width: 100%;
+	}
 }
